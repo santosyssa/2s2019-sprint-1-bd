@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Senai.Gufos.WebApi.Domains;
 using Senai.Gufos.WebApi.Repositorys;
 using System;
@@ -43,6 +44,7 @@ namespace Senai.Gufos.WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
